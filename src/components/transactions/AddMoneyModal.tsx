@@ -53,7 +53,9 @@ export const AddMoneyModal: React.FC = () => {
   if (!isOpen) return null;
 
   const currentCategory = categories.find(c => c.id === categoryId);
-  const quickSuggestions = settings.recentCounterparties || ['Dad', 'Mom', 'Anamika', 'Client'];
+  const rawSuggestions = settings.recentCounterparties || [];
+  const sanitizedSuggestions = rawSuggestions.filter(name => !['Dad', 'Mom', 'Anamika'].includes(name));
+  const quickSuggestions = Array.from(new Set(['Dinesh', 'Sakthi', ...sanitizedSuggestions]));
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -149,7 +151,7 @@ export const AddMoneyModal: React.FC = () => {
             type="text"
             value={counterpartyName}
             onChange={e => setCounterpartyName(e.target.value)}
-            placeholder="e.g. Dad, Anamika, Company Payroll"
+            placeholder="e.g. Dinesh, Sakthi, Company Payroll"
             className="w-full px-3.5 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
           />
           {quickSuggestions.length > 0 && (

@@ -115,6 +115,13 @@ export const SpendlyProvider: React.FC<{ children: React.ReactNode }> = ({ child
         ]);
 
       if (storedSettings) {
+        const sanitized = (storedSettings.recentCounterparties || [])
+          .filter(name => !['Dad', 'Mom', 'Anamika'].includes(name));
+        const updatedList = Array.from(new Set(['Dinesh', 'Sakthi', ...sanitized]));
+        if (JSON.stringify(storedSettings.recentCounterparties) !== JSON.stringify(updatedList)) {
+          storedSettings.recentCounterparties = updatedList;
+          await db.settings.update('spendly_settings', { recentCounterparties: updatedList });
+        }
         setSettings(storedSettings);
       }
       setAccounts(storedAccounts);

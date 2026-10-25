@@ -25,7 +25,7 @@ Spendly is **100% local-first and offline-capable**. All transaction ledgers, ac
 
 ### 3. Add Money (Received Income)
 * Amount received (prominent numeric entry).
-* Sender / Counterparty name with dynamic quick suggestion pills (e.g. Dad, Mom, Anamika, Client).
+* Sender / Counterparty name with dynamic quick suggestion pills (e.g. Dinesh, Sakthi, Client).
 * Category selector (Money Received, Salary, Allowance, Gift, Refund, Freelance, etc.).
 * Destination account selector.
 * Payment method (UPI, Cash, Debit Card, Credit Card, Net Banking).

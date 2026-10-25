@@ -32,7 +32,7 @@ export const DEFAULT_SETTINGS: AppSettings = {
   allowNegativeBalance: true,
   warnOnNegativeBalance: true,
   isOnboarded: false,
-  recentCounterparties: ['Dad', 'Mom', 'Anamika', 'Client Payment', 'Company Payroll'],
+  recentCounterparties: ['Dinesh', 'Sakthi', 'Client Payment', 'Company Payroll'],
 };
 
 export const DEFAULT_EXPENSE_CATEGORIES: Omit<Category, 'createdAt' | 'updatedAt'>[] = [
